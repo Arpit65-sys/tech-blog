@@ -6,8 +6,8 @@ dotenv.config();
 
 const seedAdmin = async () => {
   const username = "admin";
-  const email = "admin@system.com";
-  const password = "Admin@123";
+  const email = "admin*****@system.com";
+  const password = "Admin@******02";
   const role = "admin";
 
   const [existing] = await db.query(
