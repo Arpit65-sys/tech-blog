@@ -195,8 +195,8 @@ Run the `schema_setup.sql` file in your MySQL database to set up the required ta
 ## 🧑‍💻 Author
 
 **Arpit Pandey**
-Full Stack Developer
-React • Node.js • Express • MySQL • Tailwind CSS
+- Full Stack Developer
+- React • Node.js • Express • MySQL • Tailwind CSS
 
 ---
 
