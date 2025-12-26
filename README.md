@@ -1,10 +1,10 @@
 # Tech_Qeeda 🐛 - Tech Blog Application
 
-## Description
+## ✨ Description
 
 Tech_Qeeda is a full-stack web application for a tech blog, featuring user authentication, post management, commenting, liking, categories, and contact forms. It includes an admin panel for managing users, posts, categories, and contact queries.
 
-## Features
+## 🚀 Features
 
 - User authentication (login/register)
 - Role-based access (admin/user)
@@ -46,39 +46,10 @@ Tech_Qeeda is a full-stack web application for a tech blog, featuring user authe
 - npm or yarn
 
 ## 📁 Project Structure
-TECH_QEEDA
-│
-├── client/ # Frontend (React + Vite)
-│ ├── src/
-│ │ ├── assets/
-│ │ ├── components/
-│ │ ├── context/
-│ │ ├── pages/
-│ │ │ ├── posts/
-│ │ │ ├── users/
-│ │ │ ├── category/
-│ │ │ ├── contact/
-│ │ │ └── static/
-│ │ ├── utils/
-│ │ ├── App.jsx
-│ │ └── main.jsx
-│ └── package.json
-│
-├── server/ # Backend (Node + Express)
-│ ├── config/
-│ ├── controllers/
-│ ├── middleware/
-│ ├── models/
-│ ├── routes/
-│ ├── utils/
-│ ├── server.js
-│ ├── schema_setup.sql
-│ └── package.json
-│
-├── .gitignore
-└── README.md
 
-## Installation
+![Project Structure](./client/src/assets/images/project-structure.png)
+
+## ⚙️ Installation
 
 1. Clone the repository:
 
@@ -147,7 +118,7 @@ cd server
 node server/setupAdmin.js
 ```
 
-## Usage
+## ▶️ Usage
 
 - Visit `http://localhost:5173` for the frontend
 - API is available at `http://localhost:5000`
@@ -184,24 +155,32 @@ node server/setupAdmin.js
 
 Posts are written using **Markdown syntax**.
 
-Supported features:
-- Headings (`##`, `###`)
-- Bold & Italic
-- Ordered & unordered lists
-- Horizontal rules (`---`)
+### ✨ Supported Features
 
-Example:
+* Headings (`##`, `###`, `####`)
+* Bold & Italic text
+* Ordered & unordered lists
+* Horizontal rules (`---`)
+* Live preview & side-by-side editor mode
+
+### 📝 Example
+
 ```md
 ## Section Heading
 
-- Bullet point
-- Another point
+- First point
+- Second point
 
 **Bold text**
+```
+
+---
 
 ## Database Setup
 
 Run the `schema_setup.sql` file in your MySQL database to set up the required tables.
+
+---
 
 ## Contributing
 
@@ -210,6 +189,16 @@ Run the `schema_setup.sql` file in your MySQL database to set up the required ta
 3. Commit your changes
 4. Push to the branch
 5. Open a Pull Request
+
+---
+
+## 🧑‍💻 Author
+
+**Arpit Pandey**
+Full Stack Developer
+React • Node.js • Express • MySQL • Tailwind CSS
+
+---
 
 ## License
 
