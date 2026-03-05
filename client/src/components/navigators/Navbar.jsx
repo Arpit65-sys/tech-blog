@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import { NotificationContext } from "../../context/NotificationContext";
 import logo from "../../assets/images/logo.png";
 
 export default function Navbar() {
   const { user, logout } = useContext(AuthContext);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { unresolvedCount } = useContext(NotificationContext);
 
   const handleLogout = () => {
     logout();
@@ -48,9 +50,13 @@ export default function Navbar() {
               {user?.role === "admin" && (
                 <Link
                   to="/admin/contact-queries"
-                  className="hover:text-[15px] transition"
+                  className="relative hover:text-[15px] transition"
                 >
                   Contact Queries
+
+                  {unresolvedCount > 0 && (
+                    <span className="absolute -top-1 -right-3 h-3 w-3 bg-yellow-400 rounded-full"></span>
+                  )}
                 </Link>
               )}
 

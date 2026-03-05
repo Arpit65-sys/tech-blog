@@ -1,4 +1,5 @@
 import { contact } from "../models/contactModel.js";
+import sendMessage from "../kafka/producer.js";
 
 export const contactUs = async (req, res) => {
   try {
@@ -6,8 +7,18 @@ export const contactUs = async (req, res) => {
     if (!name || !email || !message) {
       return res.status(400).json({ message: "All fields are required" });
     }
+    // 1️⃣ Save to DB
+    const result = await contact.contactByUser({ name, email, message });
 
-    await contact.contactByUser({ name, email, message });
+    // 2️⃣ Send event to Kafka
+    await sendMessage({
+      event: "NEW_QUERY",
+      name,
+      email,
+      message,
+      createdAt: new Date(),
+    });
+
     res.status(201).json({ message: "Contact message received successfully" });
   } catch (error) {
     console.error(error); // 👈 log actual error

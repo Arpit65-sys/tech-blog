@@ -1,17 +1,29 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import API from "../../utils/api";
 import QueryCard from "../../components/contact/QueryCard";
 import Pagination from "../../components/Pagination";
+import { NotificationContext } from "../../context/NotificationContext";
+import socket from "../../socket";
 
 export default function ContactQueries() {
   const [queries, setQueries] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const { setUnresolvedCount } = useContext(NotificationContext);
 
   const pageSize = 5;
   const totalPages = Math.ceil(queries.length / pageSize);
 
   useEffect(() => {
     loadQueries();
+    // 🔥 Listen for new queries in real-time
+    socket.on("newQuery", async (data) => {
+      console.log("Real-time query received:", data);
+      await loadQueries();
+    });
+
+    return () => {
+      socket.off("newQuery");
+    };
   }, []);
 
   const loadQueries = async () => {
